@@ -1,0 +1,49 @@
+$blue: #1125da;
+$border: 1px solid rgba(0, 0, 0, 0.3);
+select {
+  color: #333333;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  border: $border;
+  margin-right: 10px;
+}
+
+input {
+  width: 100%;
+  height: 20px;
+  color: hsl(0, 0, 20);
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  border: $border;
+  text-transform: uppercase;
+
+  &.input-cart-number {
+    width: 82px;
+    display: inline-block;
+    margin-right: 8px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.dateContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+    height: 45px;
+    color: white;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    background-color: $blue;
+    border-color: $blue;
+    border-style: solid;
+    border-radius: 10px;
+    width: 100%;
+    cursor: pointer;
+}
