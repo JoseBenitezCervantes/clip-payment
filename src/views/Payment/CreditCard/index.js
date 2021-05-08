@@ -2,7 +2,7 @@ import React from "react";
 import "./index.scss";
 
 const CreditCard = ({ formValues, cardType }) => {
-  const { name, number, month, year } = formValues;
+  const { cardName, cardNumber, month, year } = formValues;
   return (
     <div className="boxCard">
       <div className="grid-container">
@@ -15,11 +15,11 @@ const CreditCard = ({ formValues, cardType }) => {
         </div>
         <div className="brand">{cardType}</div>
         <div className="cardNumber">
-          {number
-            ? number.replace(/\W/gi, "").replace(/(.{4})/g, "$1 ")
+          {cardNumber
+            ? cardNumber.replace(/\W/gi, "").replace(/(.{4})/g, "$1 ")
             : "xxxx xxxx xxxx xxxx"}
         </div>
-        <div className="nombre">{name ? name : "-- -- --"}</div>
+        <div className="nombre">{cardName ? cardName : "-- -- --"}</div>
         <div className="cardDate">
           {month}/{year}
         </div>
