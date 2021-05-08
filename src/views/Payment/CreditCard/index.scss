@@ -1,7 +1,7 @@
 .boxCard {
   position: absolute;
   top: 10px;
-  min-width: 200px;
+  min-width: 300px;
   min-height: 200px;
 }
 
@@ -15,12 +15,13 @@
   grid-template-columns: 0.5fr 1fr 1fr 1fr 0.5fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   gap: 0px 0px;
-  grid-template-areas: ". . . . ." ". chip . . brand" ". cardNumber cardNumber cardNumber ." ". nombre nombre cardDate .";
+  grid-template-areas: ". . . . ." ". chip . brand ." ". cardNumber cardNumber cardNumber ." ". nombre nombre cardDate .";
 }
 .brand {
   margin-right: 15px;
   grid-area: brand;
-  font-size: 1.5rem;
+  font-size: 20px;
+  text-transform: uppercase;
 }
 .cardNumber {
   font-size: 1.4rem;
@@ -30,6 +31,7 @@
 .nombre {
   font: 0.8rem Arial, sans-serif;
   grid-area: nombre;
+  text-transform: uppercase;
 }
 .cardDate {
   grid-area: cardDate;
@@ -40,4 +42,14 @@
 }
 .chipImg {
   max-width: 40px;
+}
+
+@media only screen and (max-width: 600px) {
+  .boxCard {
+    position: absolute;
+    top: 10px;
+    min-width: 200px;
+    min-height: 200px;
+    max-width: 300px;
+  }
 }

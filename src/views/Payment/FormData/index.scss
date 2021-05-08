@@ -36,14 +36,24 @@ input {
 }
 
 button {
-    height: 45px;
-    color: white;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    background-color: $blue;
-    border-color: $blue;
-    border-style: solid;
-    border-radius: 10px;
-    width: 100%;
-    cursor: pointer;
+  height: 45px;
+  color: white;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  background-color: $blue;
+  border-color: $blue;
+  border-style: solid;
+  border-radius: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  form {
+    margin: 30px;
+  }
+}
+
+.errorLabel{
+  color: red;
 }
