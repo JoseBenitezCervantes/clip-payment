@@ -1,8 +1,11 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { isValidData } from "./misc/validData";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+const data = {
+  cardName: "jose alberto benitez",
+  cardNumber: "37979469475897897",
+  cvv: "1245",
+  month: "03",
+  year: "2026",
+};
+
+test("Los datos deben ser validos",() => { expect(isValidData(data)).toBe(true)});

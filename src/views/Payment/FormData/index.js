@@ -3,39 +3,10 @@ import "./index.scss";
 import creditCardType from "credit-card-type";
 import Swal from "sweetalert2";
 import { setPayment } from "../../../misc/fetchCustom";
+import { isValidData } from "../../../misc/validData";
 
 const FormData = ({ formValues, handleInputChange, reset, setCardType }) => {
   const [isCardValid, setIsCardValid] = useState(true);
-
-  const isValidData = () => {
-    //Funcion para validar que los datos esten correctos
-    const { cardName, cardNumber, cvv, month, year } = formValues;
-    let isValidData = true;
-    if (
-      !(
-        cardNumber &&
-        cardNumber.toString().length > 15 &&
-        cardNumber.toString().length < 18
-      )
-    ) {
-      return false;
-    }
-    if (
-      !(
-        !!month &&
-        month !== "0" &&
-        !!year &&
-        year !== "0" &&
-        !!cvv &&
-        cardName.length > 0 &&
-        cvv.length > 0 &&
-        cvv.length < 5
-      )
-    ) {
-      return false;
-    }
-    return isValidData;
-  };
 
   const onChangeCard = (e) => {
     const cardSize = e.target.value.toString().length;
@@ -63,7 +34,7 @@ const FormData = ({ formValues, handleInputChange, reset, setCardType }) => {
   const onClickSubmit = (e) => {
     e.preventDefault();
     //Si los datos son validos se hace el pago
-    if (isValidData()) {
+    if (isValidData(formValues)) {
       setPayment(formValues, reset);
     } else {
       Swal.fire("Incomplete data", "Check your bank details", "question");
@@ -75,9 +46,9 @@ const FormData = ({ formValues, handleInputChange, reset, setCardType }) => {
       <form>
         <p>
           {isCardValid ? (
-            <label for="number">Card Number</label>
+            <label htmlFor="number">Card Number</label>
           ) : (
-            <label for="number" className="errorLabel">
+            <label htmlFor="number" className="errorLabel">
               * Card Number Invalid *
             </label>
           )}
@@ -92,7 +63,7 @@ const FormData = ({ formValues, handleInputChange, reset, setCardType }) => {
           />
         </p>
         <p>
-          <label for="name">Card Name</label>
+          <label htmlFor="name">Card Name</label>
           <input
             type="text"
             id="name"
@@ -102,11 +73,10 @@ const FormData = ({ formValues, handleInputChange, reset, setCardType }) => {
             value={formValues.cardName}
           />
         </p>
-        <p>
-          <div className="dateContent">
+        <p className="dateContent">
             <div>
               <p>
-                <label for="name">Expiration Date</label>
+                <label htmlFor="name">Expiration Date</label>
               </p>
               <select
                 id="month"
@@ -149,7 +119,7 @@ const FormData = ({ formValues, handleInputChange, reset, setCardType }) => {
             </div>
             <div>
               <p>
-                <label for="cvv">CVV</label>
+                <label htmlFor="cvv">CVV</label>
               </p>
               <input
                 type="password"
@@ -160,7 +130,6 @@ const FormData = ({ formValues, handleInputChange, reset, setCardType }) => {
                 value={formValues.cvv}
               />
             </div>
-          </div>
         </p>
         <button type="submit" id="submit" onClick={(e) => onClickSubmit(e)}>
           <p>Submit</p>
